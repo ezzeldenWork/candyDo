@@ -8,17 +8,12 @@ import {
 } from "@ant-design/icons";
 import {CardBox, ColorBox} from "./style";
 
-const TodoCard = () => {
+const TodoCard = ({img, name, color, important, very, start, end, desire, benefit, prize, note}) => {
   return (
     <CardBox>
       <Card
-        style={{width: 300}}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
+        // style={{width: 300}}
+        cover={<img alt="example" className="imgcArd" src={img} height="150" />}
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,
@@ -27,22 +22,35 @@ const TodoCard = () => {
       >
         <ul className="taskList">
           <li className="canyName">
-            Note
-            <ColorBox  colorStyle="blue"></ColorBox>
+            {name}
+            <ColorBox colorStyle={color}></ColorBox>
           </li>
           <li className="important">
-            <span className="importantType">ads</span>
-            <span className="veryImportant">asd</span>
+            <span className="importantType">
+              {important ? "Important and urgent" : "Not Important"}
+            </span>
+            <span className="veryImportant">
+              {very && <ColorBox colorStyle="red"></ColorBox>}
+            </span>
           </li>
           <li className="date">
-            <span className="start">10-5-3002</span>
+            <span className="start">{start}</span>
             <ArrowRightOutlined />
-            <span className="end">10-5-3002</span>
+            <span className="end">{end}</span>
           </li>
-          <li className="desire"> <span className="title">Desire </span> lo,asdlmpasdmoasdjpiasdhp</li>
-          <li className="desire"><span className="title">Benefit</span> dasmoihasd0i </li>
-          <li className="desire"><span className="title">Prize</span> dasmoihasd0i </li>
-          <li className="desire"><span className="title">Note</span> dasmoihasd0i </li>
+          <li className="desire">
+            {" "}
+            <span className="title">Desire </span>{desire}
+          </li>
+          <li className="desire">
+            <span className="title">Benefit</span> {benefit}
+          </li>
+          <li className="desire">
+            <span className="title">Prize</span> {prize}
+          </li>
+          <li className="desire">
+            <span className="title">Note</span> {note}
+          </li>
         </ul>
       </Card>
     </CardBox>

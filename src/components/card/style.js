@@ -59,4 +59,8 @@ export const CardBox = styled.div`
       color: #0074b7;
     }
   }
+
+  .imgcArd{
+    object-fit: cover
+  }
 `;
