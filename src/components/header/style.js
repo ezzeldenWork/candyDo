@@ -16,5 +16,9 @@ export const HeaderBox = styled.div`
       color: #ddd;
       letter-spacing: 4px;
     }
+    .headre_side{
+      display: flex;
+      align-items: center;
+    }
   }
 `;

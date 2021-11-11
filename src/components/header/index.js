@@ -1,15 +1,12 @@
 import React, {useState} from "react";
 import {PageHeader, Button} from "antd";
 import {HeaderBox} from "./style";
-import ModalBox from "../modal/index";
+import {useContext} from "react/cjs/react.development";
+import {ContextApi} from "../../context/context_api";
+import ButtonPop from "../popupBottom";
 
 const Header = () => {
-  const [visible, setVisible] = useState(false);
-
-  const close = () => {
-    setVisible(false)
-  }
-
+  const [dodo, setDodo] = useContext(ContextApi);
 
   return (
     <HeaderBox>
@@ -18,17 +15,17 @@ const Header = () => {
         title="Do Candy"
         subTitle="Todo For you"
         extra={[
-          <span className="count" key="1">Number 2</span>,
-          <Button
-          key="2"
-            type="primary"
-            onClick={() => setVisible(true)}
-          >
-            Add New
-          </Button>,
+          <div className="headre_side" key="1">
+            <span className="count" >
+              {dodo.length <= 0
+                ? "No Candy "
+                : `Do Do Take ${dodo.length} Candys`}{" "}
+            </span>
+            ,
+            <ButtonPop />
+          </div>,
         ]}
       />
-      <ModalBox visible={visible} onCancel={close} />
     </HeaderBox>
   );
 };

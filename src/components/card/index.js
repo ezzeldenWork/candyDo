@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import {CardBox, ColorBox} from "./style";
 
-const TodoCard = ({img, name, color, important, very, start, end, desire, benefit, prize, note}) => {
+const TodoCard = ({img, name, color, important, very, start, end, desire, benefit, prize, note, typeDodo}) => {
   return (
     <CardBox>
       <Card
@@ -39,7 +39,9 @@ const TodoCard = ({img, name, color, important, very, start, end, desire, benefi
             <span className="end">{end}</span>
           </li>
           <li className="desire">
-            {" "}
+            <span className="title">Type </span>{typeDodo}
+          </li>
+          <li className="desire">
             <span className="title">Desire </span>{desire}
           </li>
           <li className="desire">

@@ -6,8 +6,8 @@ import {ContextComponant} from "./context/context_api";
 function App() {
   return (
     <Router>
-      <Header />
       <ContextComponant>
+      <Header />
         <Switch>
           <Route exact path="/">
             <Home />

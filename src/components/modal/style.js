@@ -1,5 +1,14 @@
 import styled from "styled-components";
+export const ModalBox = styled.div`
+  
+  .ant-modal-footer{
+    display: none;
+  }
+`
+
 export const InputBox = styled.div`
+
+  
   .ant-form-item {
     flex-direction: column;
     .ant-form-item-label {
@@ -45,3 +54,5 @@ export const InputBox = styled.div`
     }
   }
 `;
+
+

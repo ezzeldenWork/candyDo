@@ -3,19 +3,16 @@ import {Col, Row} from "antd";
 import Container from "../../global/container";
 import TodoCard from "../card";
 import {ContextApi} from "../../context/context_api";
+import EmptyBox from "../empty";
 
 const Home = (props) => {
   const [dodo] = useContext(ContextApi);
 
-  console.log(dodo);
-
   return (
     <Container>
       <Row gutter={[16, 6]} align="bottom">
-        {/* <TodoCard /> */}
-
         {dodo.map((item) => (
-          <Col span="4">
+          <Col span="4" key={item.id}>
             <TodoCard
               key={item.id}
               img={item.imge}
@@ -24,6 +21,7 @@ const Home = (props) => {
               important={item.important}
               very={item.very}
               start={item.start}
+              typeDodo={item.typeDodo}
               end={item.end}
               desire={item.desire}
               benefit={item.benefit}
@@ -32,6 +30,12 @@ const Home = (props) => {
             />
           </Col>
         ))}
+
+        {!dodo.length && (
+          <Col span="24">
+            <EmptyBox />
+          </Col>
+        )}
       </Row>
     </Container>
   );

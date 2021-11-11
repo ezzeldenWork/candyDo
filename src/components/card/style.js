@@ -9,6 +9,19 @@ export const ColorBox = styled.div`
   margin: 0 4px;
 `;
 export const CardBox = styled.div`
+  margin: 10px 0;
+  transition: 0.4s all ease;
+  .ant-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: calc(100% - 20px);
+  }
+  &:hover {
+    z-index: 9999;
+    transform: scale(1.06);
+    box-shadow: 0 0 8px #eee;
+  }
   .taskList {
     list-style: none;
     padding: 0;
@@ -60,7 +73,7 @@ export const CardBox = styled.div`
     }
   }
 
-  .imgcArd{
-    object-fit: cover
+  .imgcArd {
+    object-fit: cover;
   }
 `;
