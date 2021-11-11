@@ -47,7 +47,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
         benefit: val.benefit,
         prize: val.prize,
         note: val.note,
-        done: true,
+        done: false,
       },
     ]);
     form.resetFields();

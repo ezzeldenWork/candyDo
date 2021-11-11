@@ -12,6 +12,17 @@ import {CardBox, ColorBox} from "./style";
 const TodoCard = () => {
   const [dodo, setDodo] = useContext(ContextApi);
 
+  const updatedTodos = (id) => {
+    setDodo(
+      dodo.map((item) => {
+        if (item.id === id) {
+          return {...item, done: !item.done};
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <>
       {dodo.map((item) => (
@@ -28,7 +39,7 @@ const TodoCard = () => {
             actions={[
               <SettingOutlined key="setting" />,
               <EditOutlined key="edit" />,
-              <CheckOutlined key="ellipsis" />,
+              <CheckOutlined key="ellipsis" onClick={updatedTodos} />,
             ]}
           >
             <ul className="taskList">

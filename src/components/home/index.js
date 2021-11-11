@@ -8,7 +8,7 @@ import EmptyBox from "../empty";
 
 const Home = (props) => {
   const [dodo] = useContext(ContextApi);
-
+  console.log(dodo);
   return (
     <Container>
       <GridBox>{!dodo.done && <TodoCard />}</GridBox>
