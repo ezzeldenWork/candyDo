@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {
   Modal,
   Form,
@@ -35,7 +35,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
       ...dodo,
       {
         id: uuid(),
-        imge: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        img: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
         doName: val.taskName,
         important: val.importantType,
         very: val.switch,
@@ -47,6 +47,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
         benefit: val.benefit,
         prize: val.prize,
         note: val.note,
+        done: true,
       },
     ]);
     form.resetFields();
@@ -70,7 +71,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
   const config = {
     rules: [
       {
-        required: true,
+        required: false,
         message: "Please Dont Let Empty!",
       },
     ],

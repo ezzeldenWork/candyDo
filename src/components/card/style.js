@@ -11,11 +11,11 @@ export const ColorBox = styled.div`
 export const CardBox = styled.div`
   margin: 10px 0;
   transition: 0.4s all ease;
+  width: 300px;
   .ant-card {
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: calc(100% - 20px);
   }
   &:hover {
     z-index: 9999;
