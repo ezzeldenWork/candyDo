@@ -29,7 +29,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
   const [date, setDate] = useState([]);
 
   const [dodo, setDodo] = useContext(ContextApi);
-
+  const [form] = Form.useForm();
   const onFinish = (val) => {
     setDodo(() => [
       ...dodo,
@@ -49,11 +49,8 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
         note: val.note,
       },
     ]);
-  };
-
-  const resolveForm = (e) => {
-    e.recet();
-    console.log(e);
+    form.resetFields();
+    onCancel();
   };
 
   const onFinishFailed = (errorInfo) => {};
@@ -73,7 +70,7 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
   const config = {
     rules: [
       {
-        required: false,
+        required: true,
         message: "Please Dont Let Empty!",
       },
     ],
@@ -85,22 +82,16 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
         title="Add New Candy"
         centered
         visible={visible}
-        okText="Add New"
-        onOk={false}
+        footer={null}
         onCancel={onCancel}
-        // okButtonProps={{
-        //   form: "category-editor-form",
-        //   key: "submit",
-        //   htmlType: "submit",
-        // }}
         width={1000}
       >
         <Form
           id="category-editor-form"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
-          autoComplete="off"
-          onSubmit={resolveForm}
+          form={form}
+          // autoComplete="off"
         >
           <Row gutter={[16, 6]} align="bottom">
             <Col span="8">
@@ -232,6 +223,15 @@ const ModalBox = ({visible, onCancel, setVisible}) => {
                 <Form.Item {...config} name={["note"]} label="Note">
                   <Input.TextArea showCount maxLength={100} />
                 </Form.Item>
+              </InputBox>
+            </Col>
+            <Col span="24">
+              <InputBox>
+                <div className="formFooter">
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </div>
               </InputBox>
             </Col>
           </Row>
